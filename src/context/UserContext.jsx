@@ -1,15 +1,26 @@
 import React, { createContext, useState } from 'react';
+import { food_items } from '../food';
 export const dataContext = createContext();
 
 
-let [input,setInput] = useState("")
+
+
+
+function UserContext({children}) {
+
+let [input,setInput] = useState("");
+let [cate,setCate] = useState(food_items);
+let[showCart,setShowCart] = useState(false);
 
 let data = {
     input,
-    setInput
+    setInput,
+    cate,
+    setCate,
+    showCart,
+    setShowCart
 }
 
-function UserContext({children}) {
   return (
     <div>
         <dataContext.Provider value = {data} >
@@ -19,4 +30,5 @@ function UserContext({children}) {
   )
 }
 
-export default UserContext 
+
+export default UserContext ;
